@@ -7,7 +7,7 @@ If you wish to join us and share your knowledge about Elastic stack too, feel fr
 <b>Right now repository contains:</b>
 <ul>
 <li>get_cluster_state_size.py - The script for collecting cluster state size. </br>
-  Sometime, in the big clusters, the reason of cluster crash is cluster state size.
+  Sometimes, in the big clusters, the reason of cluster crash is the cluster state size.
   About cluster state you can read here:
   https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-state.html
   
