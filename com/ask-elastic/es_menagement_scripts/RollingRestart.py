@@ -133,6 +133,16 @@ def is_node_back_in_cluster():
 def exec_ssh_command(node, commands):
     try:
         client = paramiko.SSHClient()
+        client.load_system_host_keys()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(node, username=USER, password=PASS)
+        
+        print 'Executing on {}'.format(node)
+        for command in commands:
+            chan = client.get_transport().open_session()
+            chan.exec_command(command)
+            print chan.recv(1024)
+            time.sleep(1)
 
     except Exception as e:
         print 'Failed to execute the command on node: ' + node
